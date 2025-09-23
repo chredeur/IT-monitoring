@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 
 from quart import Quart, Response, request, send_file, websocket
 from quart_cors import cors
-from quart_minify import Minify
+# from quart_minify import Minify
 from quart_rate_limiter import RateLimiter
 
 from hypercorn.config import Config
@@ -42,7 +42,7 @@ config_quart['dev_bot'] = dev_bot
 app = Quart(__name__, static_folder=config_quart['static_folder'])
 app = cors(app, websocket_cors_enabled=not config_quart['dev_bot'])
 app.json = OrjsonProvider(app)
-Minify(app=app, js=False, cssless=False)
+# Minify(app=app, js=False, cssless=False)
 
 rate_limiter = RateLimiter(app)
 
@@ -158,7 +158,10 @@ async def set_security_headers(response: Response):
 
 @app.route("/favicon.ico")
 async def favicon():
-    return await send_file(Path(app.static_folder) / "assets" / "img" / "favicon.ico")
+    try:
+        return await send_file(Path(app.static_folder) / "assets" / "img" / "favicon.ico")
+    except FileNotFoundError:
+        return "", 404
 
 if config_quart['dev_bot']:
     async def main(app, config):

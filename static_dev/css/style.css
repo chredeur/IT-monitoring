@@ -104,8 +104,8 @@ body {
 /* Main Container */
 .main-container {
     min-height: 100vh;
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Header */
@@ -447,8 +447,6 @@ body {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    opacity: 0;
-    transform: translateY(20px);
 }
 
 .feed-item::before {

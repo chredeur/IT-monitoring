@@ -15,10 +15,9 @@ class ITMonitoringApp {
 
     async init() {
         this.showLoadingScreen();
-        await this.setupEventListeners();
+        this.setupEventListeners();
         await this.loadInitialData();
         this.hideLoadingScreen();
-        this.setupAnimations();
     }
 
     showLoadingScreen() {
@@ -49,6 +48,10 @@ class ITMonitoringApp {
             ease: "power2.out",
             onComplete: () => {
                 loadingScreen.style.display = 'none';
+                // Délai pour s'assurer que tout est rendu avant les animations
+                setTimeout(() => {
+                    this.setupAnimations();
+                }, 100);
             }
         });
 
@@ -62,33 +65,48 @@ class ITMonitoringApp {
     }
 
     setupAnimations() {
-        // Animate stats cards
-        gsap.from('.stat-card', {
-            y: 30,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "power2.out",
-            delay: 0.5
-        });
+        // Délai supplémentaire pour s'assurer que le contenu dynamique est chargé
+        setTimeout(() => {
+            // Vérifier et animer les stat-cards
+            const statCards = document.querySelectorAll('.stat-card');
+            if (statCards.length > 0) {
+                gsap.set(statCards, { y: 30, opacity: 0 });
+                gsap.to(statCards, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: "power2.out",
+                    delay: 1.5
+                });
+            }
 
-        // Animate sidebar
-        gsap.from('.sidebar', {
-            x: -50,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power2.out",
-            delay: 0.7
-        });
+            // Vérifier et animer la sidebar
+            const sidebar = document.querySelector('.sidebar');
+            if (sidebar) {
+                gsap.set(sidebar, { x: -50, opacity: 0 });
+                gsap.to(sidebar, {
+                    x: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    delay: 0.3
+                });
+            }
 
-        // Animate section header
-        gsap.from('.section-header', {
-            y: 20,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            delay: 0.9
-        });
+            // Vérifier et animer le section header
+            const sectionHeader = document.querySelector('.section-header');
+            if (sectionHeader) {
+                gsap.set(sectionHeader, { y: 20, opacity: 0 });
+                gsap.to(sectionHeader, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.6,
+                    ease: "power2.out",
+                    delay: 0.5
+                });
+            }
+        }, 200);
     }
 
     setupEventListeners() {
@@ -198,16 +216,16 @@ class ITMonitoringApp {
         if (element) {
             const currentValue = element.textContent;
             if (currentValue !== value.toString()) {
+                element.textContent = value;
                 gsap.to(element, {
                     scale: 1.1,
                     duration: 0.2,
                     yoyo: true,
                     repeat: 1,
-                    ease: "power2.inOut",
-                    onComplete: () => {
-                        element.textContent = value;
-                    }
+                    ease: "power2.inOut"
                 });
+            } else if (currentValue === "-") {
+                element.textContent = value;
             }
         }
     }
@@ -215,6 +233,9 @@ class ITMonitoringApp {
     renderCategoryFilters(categories) {
         const container = document.getElementById('category-filters');
         container.innerHTML = '';
+
+        // Reset category filters
+        this.filters.categories = [];
 
         Object.keys(categories).forEach(key => {
             const category = categories[key];
@@ -246,12 +267,19 @@ class ITMonitoringApp {
 
         filteredFeeds.forEach((feed, index) => {
             const feedElement = this.createFeedElement(feed);
+
+            // Set initial state for animation
+            gsap.set(feedElement, {
+                y: 30,
+                opacity: 0
+            });
+
             container.appendChild(feedElement);
 
             // Animate new items
-            gsap.from(feedElement, {
-                y: 30,
-                opacity: 0,
+            gsap.to(feedElement, {
+                y: 0,
+                opacity: 1,
                 duration: 0.6,
                 delay: index * 0.05,
                 ease: "power2.out"
@@ -308,9 +336,16 @@ class ITMonitoringApp {
 
     getFilteredFeeds() {
         return this.feedData.filter(feed => {
+            // Si aucune catégorie n'est sélectionnée, on affiche tout
             const categoryMatch = this.filters.categories.length === 0 ||
-                                this.filters.categories.some(cat => feed.category.toLowerCase().includes(cat.toLowerCase()));
-            const typeMatch = this.filters.types.includes(feed.feed_type);
+                                this.filters.categories.some(cat => {
+                                    // Comparer avec la clé de catégorie depuis les données
+                                    const feedCategoryKey = feed.category.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/g, '');
+                                    return cat === 'proxmox' && feedCategoryKey.includes('proxmox') ||
+                                           cat === 'pterodactyl' && feedCategoryKey.includes('pterodactyl');
+                                });
+
+            const typeMatch = this.filters.types.length === 0 || this.filters.types.includes(feed.feed_type);
             return categoryMatch && typeMatch;
         });
     }
@@ -319,22 +354,55 @@ class ITMonitoringApp {
         this.currentView = view;
         const container = document.getElementById('feed-container');
         const viewBtns = document.querySelectorAll('.view-btn');
+        const targetBtn = document.querySelector(`[data-view="${view}"]`);
+
+        if (!container || !targetBtn) return;
 
         viewBtns.forEach(btn => btn.classList.remove('active'));
-        document.querySelector(`[data-view="${view}"]`).classList.add('active');
+        targetBtn.classList.add('active');
 
-        if (view === 'list') {
-            container.classList.add('list-view');
-        } else {
-            container.classList.remove('list-view');
+        const feedItems = document.querySelectorAll('.feed-item');
+
+        if (feedItems.length === 0) {
+            // No items to animate, just change the view
+            if (view === 'list') {
+                container.classList.add('list-view');
+            } else {
+                container.classList.remove('list-view');
+            }
+            return;
         }
 
-        gsap.from('.feed-item', {
-            scale: 0.9,
+        // Animate out first
+        gsap.to(feedItems, {
+            scale: 0.8,
             opacity: 0,
-            duration: 0.4,
-            stagger: 0.02,
-            ease: "power2.out"
+            duration: 0.2,
+            stagger: 0.01,
+            ease: "power2.in",
+            onComplete: () => {
+                // Change view
+                if (view === 'list') {
+                    container.classList.add('list-view');
+                } else {
+                    container.classList.remove('list-view');
+                }
+
+                // Animate in
+                gsap.fromTo(feedItems,
+                    {
+                        scale: 0.8,
+                        opacity: 0
+                    },
+                    {
+                        scale: 1,
+                        opacity: 1,
+                        duration: 0.4,
+                        stagger: 0.02,
+                        ease: "power2.out"
+                    }
+                );
+            }
         });
     }
 

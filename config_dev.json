@@ -1,7 +1,7 @@
 {
   "SERVER_NAME": null,
   "TEMPLATES_AUTO_RELOAD": false,
-  "static_folder": "static",
+  "static_folder": "static_dev",
   "ProxyHeadersMiddleware": ["*"],
   "TrustedHostMiddleware": ["*"],
   "rss_feeds": {

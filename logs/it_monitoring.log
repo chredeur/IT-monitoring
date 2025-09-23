@@ -1,0 +1,133 @@
+[23/09/2025 17:00:19] [INFO    ] it_monitoring.background_tasks: Background tasks started
+[23/09/2025 17:00:19] [INFO    ] it_monitoring.background_tasks: Starting RSS feeds fetch
+[23/09/2025 17:00:19] [INFO    ] it_monitoring.rss_fetcher: Fetching Forum Announcements from https://forum.proxmox.com/forums/announcements.7/index.rss
+[23/09/2025 17:00:20] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Manager Commits from https://git.proxmox.com/?p=pve-manager.git;a=rss
+[23/09/2025 17:00:20] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Kernel Commits from https://git.proxmox.com/?p=pve-kernel.git;a=rss
+[23/09/2025 17:00:20] [INFO    ] it_monitoring.rss_fetcher: Fetching Proxmox Backup Commits from https://git.proxmox.com/?p=proxmox-backup.git;a=rss
+[23/09/2025 17:00:21] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Releases from https://github.com/pterodactyl/wings/releases.atom
+[23/09/2025 17:00:21] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Commits from https://github.com/pterodactyl/wings/commits.atom
+[23/09/2025 17:00:22] [INFO    ] it_monitoring.data_manager: Feeds data saved to data\feeds_data.json
+[23/09/2025 17:00:22] [INFO    ] it_monitoring.background_tasks: RSS feeds fetch completed in 2.28s
+[23/09/2025 17:00:35] [INFO    ] it_monitoring: 127.0.0.1 GET / 200 7.41ms
+[23/09/2025 17:00:36] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/status 200 1.72ms
+[23/09/2025 17:00:36] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/categories 200 3.38ms
+[23/09/2025 17:00:36] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/latest?limit=*** 200 16.24ms
+[23/09/2025 17:01:21] [INFO    ] it_monitoring.background_tasks: Background tasks started
+[23/09/2025 17:01:21] [INFO    ] it_monitoring.background_tasks: Starting RSS feeds fetch
+[23/09/2025 17:01:21] [INFO    ] it_monitoring.rss_fetcher: Fetching Forum Announcements from https://forum.proxmox.com/forums/announcements.7/index.rss
+[23/09/2025 17:01:21] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Manager Commits from https://git.proxmox.com/?p=pve-manager.git;a=rss
+[23/09/2025 17:01:21] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Kernel Commits from https://git.proxmox.com/?p=pve-kernel.git;a=rss
+[23/09/2025 17:01:22] [INFO    ] it_monitoring.rss_fetcher: Fetching Proxmox Backup Commits from https://git.proxmox.com/?p=proxmox-backup.git;a=rss
+[23/09/2025 17:01:22] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Releases from https://github.com/pterodactyl/wings/releases.atom
+[23/09/2025 17:01:23] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Commits from https://github.com/pterodactyl/wings/commits.atom
+[23/09/2025 17:01:23] [INFO    ] it_monitoring.data_manager: Feeds data saved to data\feeds_data.json
+[23/09/2025 17:01:23] [INFO    ] it_monitoring.background_tasks: RSS feeds fetch completed in 2.29s
+[23/09/2025 17:01:28] [INFO    ] it_monitoring: 127.0.0.1 GET / 200 9.92ms
+[23/09/2025 17:01:28] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/status 200 21.64ms
+[23/09/2025 17:01:28] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/categories 200 3.35ms
+[23/09/2025 17:01:28] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/latest?limit=*** 200 19.35ms
+[23/09/2025 17:05:40] [INFO    ] it_monitoring: 127.0.0.1 GET / 200 1.21ms
+[23/09/2025 17:05:40] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/status 200 3.01ms
+[23/09/2025 17:05:40] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/categories 200 5.14ms
+[23/09/2025 17:05:40] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/latest?limit=*** 200 30.11ms
+[23/09/2025 17:05:51] [INFO    ] it_monitoring.background_tasks: Background tasks started
+[23/09/2025 17:05:51] [INFO    ] it_monitoring.background_tasks: Starting RSS feeds fetch
+[23/09/2025 17:05:51] [INFO    ] it_monitoring.rss_fetcher: Fetching Forum Announcements from https://forum.proxmox.com/forums/announcements.7/index.rss
+[23/09/2025 17:05:52] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Manager Commits from https://git.proxmox.com/?p=pve-manager.git;a=rss
+[23/09/2025 17:05:52] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Kernel Commits from https://git.proxmox.com/?p=pve-kernel.git;a=rss
+[23/09/2025 17:05:52] [INFO    ] it_monitoring.rss_fetcher: Fetching Proxmox Backup Commits from https://git.proxmox.com/?p=proxmox-backup.git;a=rss
+[23/09/2025 17:05:53] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Releases from https://github.com/pterodactyl/wings/releases.atom
+[23/09/2025 17:05:54] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Commits from https://github.com/pterodactyl/wings/commits.atom
+[23/09/2025 17:05:54] [INFO    ] it_monitoring: 127.0.0.1 GET / 200 10.27ms
+[23/09/2025 17:05:54] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/status 200 2.36ms
+[23/09/2025 17:05:54] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/categories 200 3.34ms
+[23/09/2025 17:05:54] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/latest?limit=*** 200 19.98ms
+[23/09/2025 17:05:54] [INFO    ] it_monitoring.data_manager: Feeds data saved to data\feeds_data.json
+[23/09/2025 17:05:54] [INFO    ] it_monitoring.background_tasks: RSS feeds fetch completed in 2.57s
+[23/09/2025 17:08:16] [INFO    ] it_monitoring.background_tasks: Background tasks stopped
+[23/09/2025 17:08:18] [INFO    ] it_monitoring.background_tasks: Background tasks started
+[23/09/2025 17:08:18] [INFO    ] it_monitoring.background_tasks: Starting RSS feeds fetch
+[23/09/2025 17:08:18] [INFO    ] it_monitoring.rss_fetcher: Fetching Forum Announcements from https://forum.proxmox.com/forums/announcements.7/index.rss
+[23/09/2025 17:08:20] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Manager Commits from https://git.proxmox.com/?p=pve-manager.git;a=rss
+[23/09/2025 17:08:22] [INFO    ] it_monitoring: 127.0.0.1 GET / 200 9.55ms
+[23/09/2025 17:08:22] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/status 200 2.15ms
+[23/09/2025 17:08:22] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/categories 200 3.08ms
+[23/09/2025 17:08:22] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/latest?limit=*** 200 20.60ms
+[23/09/2025 17:08:22] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Kernel Commits from https://git.proxmox.com/?p=pve-kernel.git;a=rss
+[23/09/2025 17:08:23] [INFO    ] it_monitoring.rss_fetcher: Fetching Proxmox Backup Commits from https://git.proxmox.com/?p=proxmox-backup.git;a=rss
+[23/09/2025 17:08:23] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Releases from https://github.com/pterodactyl/wings/releases.atom
+[23/09/2025 17:08:24] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Commits from https://github.com/pterodactyl/wings/commits.atom
+[23/09/2025 17:08:24] [INFO    ] it_monitoring.data_manager: Feeds data saved to data\feeds_data.json
+[23/09/2025 17:08:24] [INFO    ] it_monitoring.background_tasks: RSS feeds fetch completed in 6.22s
+[23/09/2025 17:08:46] [INFO    ] it_monitoring.background_tasks: Background tasks stopped
+[23/09/2025 17:08:48] [INFO    ] it_monitoring.background_tasks: Background tasks started
+[23/09/2025 17:08:48] [INFO    ] it_monitoring.background_tasks: Starting RSS feeds fetch
+[23/09/2025 17:08:48] [INFO    ] it_monitoring.rss_fetcher: Fetching Forum Announcements from https://forum.proxmox.com/forums/announcements.7/index.rss
+[23/09/2025 17:08:49] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Manager Commits from https://git.proxmox.com/?p=pve-manager.git;a=rss
+[23/09/2025 17:08:50] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Kernel Commits from https://git.proxmox.com/?p=pve-kernel.git;a=rss
+[23/09/2025 17:08:51] [INFO    ] it_monitoring.rss_fetcher: Fetching Proxmox Backup Commits from https://git.proxmox.com/?p=proxmox-backup.git;a=rss
+[23/09/2025 17:08:51] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Releases from https://github.com/pterodactyl/wings/releases.atom
+[23/09/2025 17:08:52] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Commits from https://github.com/pterodactyl/wings/commits.atom
+[23/09/2025 17:08:52] [INFO    ] it_monitoring.data_manager: Feeds data saved to data\feeds_data.json
+[23/09/2025 17:08:52] [INFO    ] it_monitoring.background_tasks: RSS feeds fetch completed in 4.61s
+[23/09/2025 17:08:53] [INFO    ] it_monitoring: 127.0.0.1 GET / 200 9.34ms
+[23/09/2025 17:08:53] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/status 200 38.51ms
+[23/09/2025 17:08:53] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/categories 200 4.71ms
+[23/09/2025 17:08:53] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/latest?limit=*** 200 22.05ms
+[23/09/2025 17:12:27] [INFO    ] it_monitoring: 127.0.0.1 GET / 200 1.30ms
+[23/09/2025 17:12:27] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/status 200 2.38ms
+[23/09/2025 17:12:27] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/categories 200 3.40ms
+[23/09/2025 17:12:27] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/latest?limit=*** 200 23.95ms
+[23/09/2025 17:13:52] [INFO    ] it_monitoring.background_tasks: Starting RSS feeds fetch
+[23/09/2025 17:13:52] [INFO    ] it_monitoring.rss_fetcher: Fetching Forum Announcements from https://forum.proxmox.com/forums/announcements.7/index.rss
+[23/09/2025 17:13:53] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Manager Commits from https://git.proxmox.com/?p=pve-manager.git;a=rss
+[23/09/2025 17:13:53] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Kernel Commits from https://git.proxmox.com/?p=pve-kernel.git;a=rss
+[23/09/2025 17:13:54] [INFO    ] it_monitoring.rss_fetcher: Fetching Proxmox Backup Commits from https://git.proxmox.com/?p=proxmox-backup.git;a=rss
+[23/09/2025 17:13:54] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Releases from https://github.com/pterodactyl/wings/releases.atom
+[23/09/2025 17:13:54] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Commits from https://github.com/pterodactyl/wings/commits.atom
+[23/09/2025 17:13:55] [INFO    ] it_monitoring.data_manager: Feeds data saved to data\feeds_data.json
+[23/09/2025 17:13:55] [INFO    ] it_monitoring.background_tasks: RSS feeds fetch completed in 2.59s
+[23/09/2025 17:15:32] [INFO    ] it_monitoring: 127.0.0.1 GET / 200 0.57ms
+[23/09/2025 17:15:32] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/status 200 2.20ms
+[23/09/2025 17:15:32] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/categories 200 3.80ms
+[23/09/2025 17:15:32] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/latest?limit=*** 200 23.25ms
+[23/09/2025 17:15:34] [INFO    ] it_monitoring: 127.0.0.1 GET / 200 0.66ms
+[23/09/2025 17:15:35] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/status 200 1.67ms
+[23/09/2025 17:15:35] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/categories 200 15.96ms
+[23/09/2025 17:15:35] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/latest?limit=*** 200 18.88ms
+[23/09/2025 17:15:39] [INFO    ] it_monitoring: 127.0.0.1 GET / 200 0.69ms
+[23/09/2025 17:15:39] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/status 200 2.56ms
+[23/09/2025 17:15:39] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/categories 200 28.58ms
+[23/09/2025 17:15:39] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/latest?limit=*** 200 22.22ms
+[23/09/2025 17:16:37] [INFO    ] it_monitoring: 127.0.0.1 GET / 200 0.91ms
+[23/09/2025 17:16:37] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/status 200 2.66ms
+[23/09/2025 17:16:37] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/categories 200 5.78ms
+[23/09/2025 17:16:37] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/latest?limit=*** 200 28.88ms
+[23/09/2025 17:18:13] [INFO    ] it_monitoring.background_tasks: Starting RSS feeds fetch
+[23/09/2025 17:18:13] [INFO    ] it_monitoring.rss_fetcher: Fetching Forum Announcements from https://forum.proxmox.com/forums/announcements.7/index.rss
+[23/09/2025 17:18:13] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Manager Commits from https://git.proxmox.com/?p=pve-manager.git;a=rss
+[23/09/2025 17:18:14] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Kernel Commits from https://git.proxmox.com/?p=pve-kernel.git;a=rss
+[23/09/2025 17:18:14] [INFO    ] it_monitoring.rss_fetcher: Fetching Proxmox Backup Commits from https://git.proxmox.com/?p=proxmox-backup.git;a=rss
+[23/09/2025 17:18:14] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Releases from https://github.com/pterodactyl/wings/releases.atom
+[23/09/2025 17:18:15] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Commits from https://github.com/pterodactyl/wings/commits.atom
+[23/09/2025 17:18:15] [INFO    ] it_monitoring.data_manager: Feeds data saved to data\feeds_data.json
+[23/09/2025 17:18:15] [INFO    ] it_monitoring.background_tasks: RSS feeds fetch completed in 2.65s
+[23/09/2025 17:18:15] [INFO    ] it_monitoring: 127.0.0.1 POST /api/admin/force-fetch 200 2656.79ms
+[23/09/2025 17:18:15] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/status 200 31.55ms
+[23/09/2025 17:18:15] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/categories 200 22.67ms
+[23/09/2025 17:18:15] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/latest?limit=*** 200 21.33ms
+[23/09/2025 17:18:27] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/latest?limit=*** 200 7.17ms
+[23/09/2025 17:18:55] [INFO    ] it_monitoring.background_tasks: Starting RSS feeds fetch
+[23/09/2025 17:18:55] [INFO    ] it_monitoring.rss_fetcher: Fetching Forum Announcements from https://forum.proxmox.com/forums/announcements.7/index.rss
+[23/09/2025 17:18:56] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Manager Commits from https://git.proxmox.com/?p=pve-manager.git;a=rss
+[23/09/2025 17:18:56] [INFO    ] it_monitoring.rss_fetcher: Fetching PVE Kernel Commits from https://git.proxmox.com/?p=pve-kernel.git;a=rss
+[23/09/2025 17:18:57] [INFO    ] it_monitoring.rss_fetcher: Fetching Proxmox Backup Commits from https://git.proxmox.com/?p=proxmox-backup.git;a=rss
+[23/09/2025 17:18:57] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Releases from https://github.com/pterodactyl/wings/releases.atom
+[23/09/2025 17:18:58] [INFO    ] it_monitoring.rss_fetcher: Fetching Wings Commits from https://github.com/pterodactyl/wings/commits.atom
+[23/09/2025 17:18:58] [INFO    ] it_monitoring.data_manager: Feeds data saved to data\feeds_data.json
+[23/09/2025 17:18:58] [INFO    ] it_monitoring.background_tasks: RSS feeds fetch completed in 2.98s
+[23/09/2025 17:19:04] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/latest?limit=*** 200 3.51ms
+[23/09/2025 17:21:12] [INFO    ] it_monitoring: 127.0.0.1 GET / 200 1.07ms
+[23/09/2025 17:21:12] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/status 200 2.31ms
+[23/09/2025 17:21:12] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/categories 200 2.72ms
+[23/09/2025 17:21:12] [INFO    ] it_monitoring: 127.0.0.1 GET /api/feeds/latest?limit=*** 200 18.55ms
