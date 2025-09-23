@@ -1,0 +1,55 @@
+{
+  "SERVER_NAME": null,
+  "TEMPLATES_AUTO_RELOAD": false,
+  "static_folder": "static",
+  "ProxyHeadersMiddleware": ["*"],
+  "TrustedHostMiddleware": ["*"],
+  "rss_feeds": {
+    "proxmox": {
+      "category": "Proxmox",
+      "feeds": {
+        "announcements": {
+          "name": "Forum Announcements",
+          "url": "https://forum.proxmox.com/forums/announcements.7/index.rss",
+          "type": "announcements"
+        },
+        "pve_manager_commits": {
+          "name": "PVE Manager Commits",
+          "url": "https://git.proxmox.com/?p=pve-manager.git;a=rss",
+          "type": "commits"
+        },
+        "pve_kernel_commits": {
+          "name": "PVE Kernel Commits",
+          "url": "https://git.proxmox.com/?p=pve-kernel.git;a=rss",
+          "type": "commits"
+        },
+        "proxmox_backup_commits": {
+          "name": "Proxmox Backup Commits",
+          "url": "https://git.proxmox.com/?p=proxmox-backup.git;a=rss",
+          "type": "commits"
+        }
+      }
+    },
+    "pterodactyl": {
+      "category": "Pterodactyl Wings",
+      "feeds": {
+        "releases": {
+          "name": "Wings Releases",
+          "url": "https://github.com/pterodactyl/wings/releases.atom",
+          "type": "releases"
+        },
+        "commits": {
+          "name": "Wings Commits",
+          "url": "https://github.com/pterodactyl/wings/commits.atom",
+          "type": "commits"
+        }
+      }
+    }
+  },
+  "storage": {
+    "data_dir": "data",
+    "feeds_file": "data/feeds_data.json",
+    "user_activity_file": "data/user_activity.json"
+  },
+  "fetch_interval": 300
+}

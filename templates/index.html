@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Monitoring Dashboard</title>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static_dev/css/style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <i class="fas fa-server loading-icon"></i>
+            <h2>IT Monitoring Dashboard</h2>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div id="main-container" class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    <h1>IT Monitoring</h1>
+                </div>
+                <div class="header-actions">
+                    <div class="status-indicator" id="status-indicator">
+                        <i class="fas fa-circle"></i>
+                        <span>Connecté</span>
+                    </div>
+                    <button class="refresh-btn" id="refresh-btn">
+                        <i class="fas fa-sync-alt"></i>
+                        Actualiser
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Bar -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-card" data-stat="categories">
+                    <div class="stat-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="stat-categories">-</h3>
+                        <p>Catégories</p>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-stat="feeds">
+                    <div class="stat-icon">
+                        <i class="fas fa-rss"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="stat-feeds">-</h3>
+                        <p>Flux RSS</p>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-stat="entries">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="stat-entries">-</h3>
+                        <p>Articles</p>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-stat="update">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="stat-update">-</h3>
+                        <p>Dernière MAJ</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2><i class="fas fa-filter"></i> Filtres</h2>
+                </div>
+                <div class="filter-section">
+                    <h3>Catégories</h3>
+                    <div class="category-filters" id="category-filters">
+                        <!-- Categories will be populated here -->
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <h3>Types de contenu</h3>
+                    <div class="type-filters">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="type" value="announcements" checked>
+                            <span class="checkmark"></span>
+                            <i class="fas fa-bullhorn"></i> Annonces
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="type" value="commits" checked>
+                            <span class="checkmark"></span>
+                            <i class="fas fa-code-branch"></i> Commits
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="type" value="releases" checked>
+                            <span class="checkmark"></span>
+                            <i class="fas fa-tag"></i> Releases
+                        </label>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Feed Grid -->
+                <section class="feed-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-stream"></i> Flux d'actualités</h2>
+                        <div class="view-controls">
+                            <button class="view-btn active" data-view="grid">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="view-btn" data-view="list">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="feed-container" id="feed-container">
+                        <!-- Feed items will be populated here -->
+                    </div>
+
+                    <div class="load-more-container">
+                        <button class="load-more-btn" id="load-more-btn">
+                            <i class="fas fa-chevron-down"></i>
+                            Charger plus
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for detailed view -->
+    <div class="modal" id="detail-modal">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title"></h3>
+                <button class="modal-close" id="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Content will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="/static_dev/js/app.js"></script>
+</body>
+</html>
