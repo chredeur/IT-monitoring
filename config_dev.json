@@ -10,7 +10,7 @@
     "webhooks": [
       {
         "name": "Dev Testing",
-        "url": "https://discord.com/api/webhooks/1443729335298035814/iWEMDMZ3Ye6OKFFKF-QLXwWXsKnvcJ9yXe5gYeEr4W8_TZUPwx6gDmyeEox0Uhh4IN-Y",
+        "url": "${DISCORD_WEBHOOK_URL}",
         "categories": ["proxmox", "pterodactyl", "docker", "golang", "python"],
         "types": ["releases", "announcements"],
         "mention_role": null

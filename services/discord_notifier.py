@@ -4,6 +4,8 @@ Envoie les nouvelles entrées RSS vers Discord.
 """
 import asyncio
 import logging
+import os
+import re
 import urllib.parse
 from datetime import datetime, timezone
 from typing import Dict, List, Optional
@@ -48,6 +50,16 @@ class DiscordNotifier:
     def is_enabled(self) -> bool:
         """Vérifie si les notifications Discord sont activées."""
         return self.enabled and bool(self.discord_config.get('webhooks'))
+
+    def _resolve_env_vars(self, value: str) -> str:
+        """Résout les variables d'environnement dans une chaîne (format ${VAR})."""
+        if not value:
+            return value
+        pattern = r'\$\{([^}]+)\}'
+        def replace(match):
+            var_name = match.group(1)
+            return os.environ.get(var_name, match.group(0))
+        return re.sub(pattern, replace, value)
 
     async def notify_new_entries(self, new_entries: List[Dict]) -> Dict[str, int]:
         """
@@ -124,8 +136,9 @@ class DiscordNotifier:
         Returns:
             True si l'envoi a réussi
         """
-        webhook_url = webhook_config.get('url')
-        if not webhook_url:
+        webhook_url = self._resolve_env_vars(webhook_config.get('url', ''))
+        if not webhook_url or webhook_url.startswith('${'):
+            self.logger.error("Webhook URL not configured or env var not set")
             return False
 
         try:
@@ -265,6 +278,12 @@ class DiscordNotifier:
         """
         if not self.session:
             self.logger.error("HTTP session not initialized")
+            return False
+
+        # Résoudre les variables d'environnement
+        webhook_url = self._resolve_env_vars(webhook_url)
+        if not webhook_url or webhook_url.startswith('${'):
+            self.logger.error("Webhook URL not configured or env var not set")
             return False
 
         try:
