@@ -164,7 +164,6 @@ async def set_security_headers(response: Response):
     return response
 
 @app.route("/favicon.ico")
-@app.route("/favicon.svg")
 async def favicon():
     try:
         return await send_file(
