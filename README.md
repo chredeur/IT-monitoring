@@ -52,6 +52,22 @@ Options principales :
 
 ## Lancement
 
+### Avec Docker (recommandé)
+
+```bash
+# Configurer le webhook
+cp .env.example .env
+# Éditer .env
+
+# Lancer
+docker compose up -d
+
+# Voir les logs
+docker compose logs -f
+```
+
+### Sans Docker
+
 ```bash
 # Mode développement
 set DEV=True && python main.py  # Windows
@@ -61,7 +77,7 @@ DEV=True python main.py  # Linux/Mac
 set DEV=False && python main.py
 ```
 
-Le serveur démarre sur `http://localhost:25567` en mode dev.
+Le serveur démarre sur `http://localhost:25567`.
 
 ## Structure
 
@@ -70,6 +86,8 @@ IT-monitoring/
 ├── main.py              # Point d'entrée
 ├── config.json          # Config production
 ├── config_dev.json      # Config développement
+├── Dockerfile
+├── docker-compose.yml
 ├── services/
 │   ├── database.py      # Gestion SQLite
 │   ├── rss_fetcher.py   # Récupération RSS
@@ -77,9 +95,10 @@ IT-monitoring/
 │   └── background_tasks.py  # Tâches périodiques
 ├── endpoints/
 │   └── api/feeds.py     # API REST
-├── static_dev/
-│   ├── js/app.js        # Frontend
-│   └── css/style.css    # Styles
+├── static/              # Assets production (minifiés)
+├── static_dev/          # Assets développement
+│   ├── js/app.js
+│   └── css/style.css
 └── data/
     └── feeds.db         # Base SQLite
 ```

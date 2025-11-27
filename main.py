@@ -170,14 +170,20 @@ async def favicon():
     except FileNotFoundError:
         return "", 404
 
-if config_quart['dev_bot']:
-    async def main(app, config):
-        await serve(app, config)
-    if __name__ == "__main__":
-        config = Config()
+async def main(app, config):
+    await serve(app, config)
+
+if __name__ == "__main__":
+    config = Config()
+
+    if config_quart['dev_bot']:
         config.bind = ['127.0.0.1:25567']
         config.loglevel = 'DEBUG'
         config.debug = True
         config.use_reloader = True
-        loop = asyncio.new_event_loop()
-        loop.run_until_complete(main(app, config))
+    else:
+        config.bind = ['0.0.0.0:25567']
+        config.loglevel = 'INFO'
+
+    loop = asyncio.new_event_loop()
+    loop.run_until_complete(main(app, config))

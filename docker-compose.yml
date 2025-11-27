@@ -1,0 +1,16 @@
+services:
+  it-monitoring:
+    build: .
+    container_name: it-monitoring
+    restart: unless-stopped
+    ports:
+      - "25567:25567"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config.json:/app/config.json:ro
+    environment:
+      - DEV=False
+      - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
+    env_file:
+      - .env
