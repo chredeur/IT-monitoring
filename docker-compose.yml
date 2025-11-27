@@ -9,6 +9,7 @@ services:
       - ./data:/app/data
       - ./logs:/app/logs
       - ./config.json:/app/config.json:ro
+      - ./static:/app/static:ro
     environment:
       - DEV=False
       - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
