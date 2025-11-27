@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "@babel/cli": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "babel-preset-env": "^0.0.0",
+    "babel-preset-minify": "^0.5.2",
+    "csso-cli": "^4.0.2",
+    "terser": "^5.43.1",
+    "webpack": "^5.91.0"
+  }
+}

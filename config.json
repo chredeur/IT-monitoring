@@ -2,8 +2,24 @@
   "SERVER_NAME": null,
   "TEMPLATES_AUTO_RELOAD": false,
   "static_folder": "static",
-  "ProxyHeadersMiddleware": ["*"],
-  "TrustedHostMiddleware": ["*"],
+  "ProxyHeadersMiddleware": ["127.0.0.1", "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"],
+  "TrustedHostMiddleware": ["localhost", "127.0.0.1"],
+  "discord": {
+    "enabled": true,
+    "site_url": "https://your-domain.com",
+    "webhooks": [
+      {
+        "name": "IT News",
+        "url": "https://discord.com/api/webhooks/1443729335298035814/iWEMDMZ3Ye6OKFFKF-QLXwWXsKnvcJ9yXe5gYeEr4W8_TZUPwx6gDmyeEox0Uhh4IN-Y",
+        "categories": ["proxmox", "pterodactyl", "docker", "golang", "python"],
+        "types": ["releases", "announcements"],
+        "mention_role": null
+      }
+    ],
+    "embed_color": 5814783,
+    "rate_limit_per_minute": 30,
+    "batch_delay_seconds": 2
+  },
   "rss_feeds": {
     "proxmox": {
       "category": "Proxmox",
@@ -31,25 +47,59 @@
       }
     },
     "pterodactyl": {
-      "category": "Pterodactyl Wings",
+      "category": "Pterodactyl",
       "feeds": {
-        "releases": {
+        "wings_releases": {
           "name": "Wings Releases",
           "url": "https://github.com/pterodactyl/wings/releases.atom",
           "type": "releases"
         },
-        "commits": {
+        "wings_commits": {
           "name": "Wings Commits",
           "url": "https://github.com/pterodactyl/wings/commits.atom",
           "type": "commits"
+        }
+      }
+    },
+    "docker": {
+      "category": "Docker",
+      "feeds": {
+        "releases": {
+          "name": "Docker CLI Releases",
+          "url": "https://github.com/docker/cli/releases.atom",
+          "type": "releases"
+        },
+        "compose_releases": {
+          "name": "Docker Compose Releases",
+          "url": "https://github.com/docker/compose/releases.atom",
+          "type": "releases"
+        }
+      }
+    },
+    "golang": {
+      "category": "Go",
+      "feeds": {
+        "releases": {
+          "name": "Go Releases",
+          "url": "https://github.com/golang/go/releases.atom",
+          "type": "releases"
+        }
+      }
+    },
+    "python": {
+      "category": "Python",
+      "feeds": {
+        "announcements": {
+          "name": "Python News",
+          "url": "https://blog.python.org/feeds/posts/default?alt=rss",
+          "type": "announcements"
         }
       }
     }
   },
   "storage": {
     "data_dir": "data",
-    "feeds_file": "data/feeds_data.json",
-    "user_activity_file": "data/user_activity.json"
+    "db_file": "data/feeds.db"
   },
   "fetch_interval": 300
 }

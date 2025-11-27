@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 from ipaddress import ip_address, AddressValueError
 
 from typing import Optional

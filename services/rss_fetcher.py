@@ -1,8 +1,5 @@
-import asyncio
-import json
 import logging
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Dict, List, Optional
 
 import aiohttp
@@ -61,16 +58,38 @@ class RSSFetcher:
         }
 
     def _parse_date(self, entry) -> str:
-        if hasattr(entry, 'published_parsed') and entry.published_parsed:
-            try:
-                dt = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
-                return dt.isoformat()
-            except:
-                pass
+        # Essayer plusieurs champs de date (RSS et Atom)
+        date_fields = [
+            ('published_parsed', 'published'),
+            ('updated_parsed', 'updated'),
+            ('created_parsed', 'created'),
+        ]
 
-        if hasattr(entry, 'published'):
-            return entry.published
+        for parsed_field, raw_field in date_fields:
+            # Essayer le champ parsé en premier
+            parsed_value = getattr(entry, parsed_field, None)
+            if parsed_value:
+                try:
+                    dt = datetime(*parsed_value[:6], tzinfo=timezone.utc)
+                    return dt.isoformat()
+                except (ValueError, TypeError, IndexError):
+                    pass
 
+            # Essayer le champ brut
+            raw_value = getattr(entry, raw_field, None)
+            if raw_value and isinstance(raw_value, str):
+                # Essayer de parser la date brute
+                try:
+                    from email.utils import parsedate_to_datetime
+                    dt = parsedate_to_datetime(raw_value)
+                    return dt.isoformat()
+                except (ValueError, TypeError):
+                    pass
+                # Retourner tel quel si c'est déjà au format ISO
+                if 'T' in raw_value or raw_value.count('-') >= 2:
+                    return raw_value
+
+        # Fallback: date actuelle
         return datetime.now(timezone.utc).isoformat()
 
     async def fetch_all_feeds(self) -> Dict[str, Dict]:

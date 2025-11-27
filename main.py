@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 
 from quart import Quart, Response, request, send_file, websocket
 from quart_cors import cors
-# from quart_minify import Minify
+from quart_minify import Minify
 from quart_rate_limiter import RateLimiter
 
 from hypercorn.config import Config
@@ -22,8 +22,8 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from router.base_bp import base_bp
 from endpoints.api.feeds import feeds_api
-from endpoints.api.admin import admin_api
 from services.background_tasks import BackgroundTaskManager
+from services.database import Database
 from utility.orjson_provider import OrjsonProvider
 from utility.utils import ProxyHeadersMiddleware, get_client_ip, get_client_ip_ws, mask_query
 
@@ -42,7 +42,7 @@ config_quart['dev_bot'] = dev_bot
 app = Quart(__name__, static_folder=config_quart['static_folder'])
 app = cors(app, websocket_cors_enabled=not config_quart['dev_bot'])
 app.json = OrjsonProvider(app)
-# Minify(app=app, js=False, cssless=False)
+Minify(app=app, js=True, cssless=False, remove_console=True)
 
 rate_limiter = RateLimiter(app)
 
@@ -83,10 +83,15 @@ if not config_quart['dev_bot']:
 
 app.register_blueprint(base_bp)
 app.register_blueprint(feeds_api)
-app.register_blueprint(admin_api)
 
 @app.before_serving
 async def startup():
+    # Initialize database
+    db_path = config_quart['storage'].get('db_file', 'data/feeds.db')
+    database = Database(db_path)
+    await database.connect()
+    config_quart['database'] = database
+
     session_aio = aiohttp.ClientSession()
     config_quart['session'] = session_aio
 
@@ -98,6 +103,8 @@ async def startup():
 async def shutdown():
     if 'background_manager' in config_quart:
         await config_quart['background_manager'].stop()
+    if 'database' in config_quart:
+        await config_quart['database'].close()
     await config_quart['session'].close()
 
 @app.before_request

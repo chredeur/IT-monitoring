@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    ["babel-plugin-minify-dead-code-elimination"],
+    ["babel-plugin-minify-constant-folding"],
+    ["babel-plugin-minify-guarded-expressions"],
+    ["babel-plugin-transform-minify-booleans"],
+    ["babel-plugin-minify-numeric-literals"],
+    [
+      "babel-plugin-transform-remove-console",
+      {
+        "exclude": ["error", "warn"]
+      }
+    ]
+  ],
+  "comments": false,
+  "compact": true
+}
