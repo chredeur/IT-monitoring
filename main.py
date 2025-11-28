@@ -166,10 +166,7 @@ async def set_security_headers(response: Response):
 @app.route("/favicon.ico")
 async def favicon():
     try:
-        return await send_file(
-            Path(app.static_folder) / "assets" / "img" / "favicon.svg",
-            mimetype="image/svg+xml"
-        )
+        return await send_file(Path(app.static_folder) / "assets" / "img" / "favicon.ico")
     except FileNotFoundError:
         return "", 404
 
